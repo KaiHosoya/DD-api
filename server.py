@@ -17,7 +17,9 @@ def index():
 @app.route("/get_df", methods=['GET', 'POST'])
 def parse():
     data = request.get_json()
-    id = data['id']
+    name = data['name']
+    id = DD.DD.get_user_id(name=name)
+    DD.DD.judge(id)
 
     res = DD.DD.get_df(id, 10, 10)
     print(res)
